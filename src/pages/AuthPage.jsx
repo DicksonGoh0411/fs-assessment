@@ -5,7 +5,7 @@ import useLocalStorage from "use-local-storage"
 import { useNavigate } from "react-router-dom"
 
 export default function AuthPage() {
-    const loginImage = "https://sig1.co/img-twitter-1";
+    const loginImage = "https://astrotowing.ca/wp-content/uploads/2020/08/Vertical-Placeholder-Image.jpg";
     const url = "https://9d75cad4-19fa-47f5-8c80-fd25fe460c0f-00-2q03qxh1mro51.sisko.repl.co";
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -49,10 +49,10 @@ export default function AuthPage() {
     return (
         <Row>
             <Col sm={6}>
-                <Image src={loginImage} fluid />
+                <Image src={loginImage} fluid style={{ backgroundSize: "cover", backgroundPosition: "center" }} />
             </Col>
             <Col sm={6} className="p-4">
-                <p className="mt-5" style={{ fontSize: 64 }}>Shop Name</p>
+                <p className="mt-5" style={{ fontSize: 64 }}>Name goes here</p>
                 <h2 className="my-5" style={{ fontSize: 31 }}>Booking App</h2>
 
                 <Col sm={6} style={{ marginLeft: "-25px", marginBottom: "20px" }}>

@@ -11,7 +11,7 @@ export default function ProfileSideBar({ handleLogout }) {
     return (
         <Col sm={2} className="d-flex flex-column justify-content-start align-items-start bg-light vh-100" style={{ position: "sticky", top: 0 }}>
 
-            <h1>ABC</h1>
+            <h1>Logo goes here :)</h1>
             <Button className="rounded-pill w-100 mt-3" onClick={handleShow}>Add Booking</Button>
             <Button className="rounded-pill w-100 mt-3" onClick={handleLogout}>Logout</Button>
             <NewBookingModal show={show} handleClose={handleClose} />

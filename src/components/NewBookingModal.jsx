@@ -57,7 +57,7 @@ export default function NewPostModal({ show, handleClose }) {
                         <Form.Group controlId="bookingDescription">
                             <Form.Label>Description</Form.Label>
                             <Form.Control
-                                placeholder="What is happening?!"
+                                placeholder="Enter any descriptions"
                                 as="textarea"
                                 rows={3}
                                 onChange={(e) => setBookingDescription(e.target.value)}
@@ -67,7 +67,7 @@ export default function NewPostModal({ show, handleClose }) {
                             <Form.Label>Date</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Booking Date"
+                                placeholder="(DD/MM/YYYY)"
                                 onChange={(e) => setBookingDate(e.target.value)}
                             />
                         </Form.Group>
@@ -75,7 +75,7 @@ export default function NewPostModal({ show, handleClose }) {
                             <Form.Label>Time</Form.Label>
                             <Form.Control
                                 type="text"
-                                placeholder="Booking Date"
+                                placeholder="12:00PM"
                                 onChange={(e) => setBookingTime(e.target.value)}
                             />
                         </Form.Group>
