@@ -10,17 +10,19 @@ export default function NewPostModal({ show, handleClose }) {
     const [bookingTime, setBookingTime] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
 
+    const url = import.meta.env.VITE_API_URL;
+
     const handleSave = () => {
         //Get stored JWT Token
         const token = localStorage.getItem("authToken");
 
         //Decode the token to fetch user id
         const decode = jwtDecode(token);
-        const userId = decode.id // May change depending on how the server encode the token
+        const userId = decode.id
 
         //Prepare data to be sent
         const data = {
-            title: bookingTitle,  //Add functionality to set this properly
+            title: bookingTitle,
             description: bookingDescription,
             date: bookingDate,
             time: bookingTime,
@@ -30,7 +32,7 @@ export default function NewPostModal({ show, handleClose }) {
 
         //Make your API call here
         axios
-            .post("https://9d75cad4-19fa-47f5-8c80-fd25fe460c0f-00-2q03qxh1mro51.sisko.repl.co/bookings", data)
+            .post(`${url}/bookings`, data)
             .then((response) => {
                 console.log("Success:", response.data);
                 handleClose();

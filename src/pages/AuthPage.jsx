@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 
 export default function AuthPage() {
     const loginImage = "https://astrotowing.ca/wp-content/uploads/2020/08/Vertical-Placeholder-Image.jpg";
-    const url = "https://9d75cad4-19fa-47f5-8c80-fd25fe460c0f-00-2q03qxh1mro51.sisko.repl.co";
+    const url = import.meta.env.VITE_API_URL;
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);

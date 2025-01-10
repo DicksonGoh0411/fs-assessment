@@ -6,25 +6,18 @@ import EditBookingModal from "./EditBookingModal";
 
 export default function BookingList() {
     const [bookings, setBookings] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [selectedBooking, setSelectedBooking] = useState(null); // State for the booking to edit
     const [showEditModal, setShowEditModal] = useState(false); // State to show edit modal
 
-    const url = "https://9d75cad4-19fa-47f5-8c80-fd25fe460c0f-00-2q03qxh1mro51.sisko.repl.co"
+    const url = import.meta.env.VITE_API_URL;
 
     // Fetch bookings based on user id
     const fetchBookings = (userId) => {
         fetch(`${url}/bookings/user/${userId}`)
             .then((response) => response.json())
-            .then((data) => {
-                setBookings(data);
-                setLoading(false);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                setLoading(false);
-            });
-    };
+            .then((data) => setBookings(data))
+            .catch((error) => console.error("Error:", error));
+    }
 
     const handleEdit = (id) => {
         const bookingToEdit = bookings.find((booking) => booking.id === id);
@@ -50,16 +43,12 @@ export default function BookingList() {
             const decodedToken = jwtDecode(token);
             const userId = decodedToken.id;
             fetchBookings(userId);
-        } else {
-            setLoading(false);
         }
     }, []);
 
     return (
         <Col sm={10} className="bg-light" style={{ border: "1px solid lightgrey" }}>
-            {loading ? (
-                <div>Loading...</div>
-            ) : bookings.length > 0 ? (
+            {bookings.length > 0 ? (
                 bookings.map((booking) => (
                     <BookingItem
                         key={booking.id}

@@ -10,6 +10,8 @@ export default function EditBookingModal({ show, handleClose, booking, onUpdateB
     const [bookingTime, setBookingTime] = useState(booking?.time || "");
     const [phoneNumber, setPhoneNumber] = useState(booking?.phone_number || "");
 
+    const url = import.meta.env.VITE_API_URL;
+
     const handleSave = () => {
         const token = localStorage.getItem("authToken");
         const decode = jwtDecode(token);
@@ -27,7 +29,7 @@ export default function EditBookingModal({ show, handleClose, booking, onUpdateB
         if (booking?.id) {
             // Update existing booking
             axios
-                .put(`https://9d75cad4-19fa-47f5-8c80-fd25fe460c0f-00-2q03qxh1mro51.sisko.repl.co/bookings/${booking.id}`, data)
+                .put(`${url}/bookings/${booking.id}`, data)
                 .then((response) => {
                     onUpdateBooking(response.data); // Update the booking in the parent component
                     handleClose();
